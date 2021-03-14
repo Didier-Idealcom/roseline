@@ -1,18 +1,62 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import Img from 'gatsby-image'
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
+import './index.css'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import ProjectPreviewCarousel from '../components/project-preview-carousel'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
   query IndexPageQuery {
+    bandeau: file(relativePath: { eq: "bandeau_signature.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    illustration_artiste: file(relativePath: { eq: "illustration_artiste.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    galerie1: file(relativePath: { eq: "galerie1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    galerie2: file(relativePath: { eq: "galerie2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    galerie3: file(relativePath: { eq: "galerie3.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    galerie4: file(relativePath: { eq: "galerie4.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       description
@@ -45,14 +89,18 @@ export const query = graphql`
             }
             asset {
               _id
+              fluid(maxWidth: 600, maxHeight: 480) {
+                ...GatsbySanityImageFluid
+              }
             }
             alt
           }
           title
-          _rawExcerpt
           slug {
             current
           }
+          dimensions
+          price
         }
       }
     }
@@ -86,16 +134,118 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
-      </Container>
+
+      <div id="bandeau" className="bandeau">
+        <Img fluid={data.bandeau.childImageSharp.fluid} fadeIn alt="Bandeau Rose-Line" />
+      </div>
+
+      <div className="section section_intro">
+        <Container>
+          <h1 hidden>{site.title}</h1>
+          <p className="text-center">Rose-Line était d’origine Gardoise (Uzès) mais en se mariant à un Antibois, elle a très vite adopté la Ville d’Antibes où elle a passé le reste de sa vie.</p>
+        </Container>
+      </div>
+
+      <div id="realisations" className="section section_realisations">
+        <Container>
+          <p className="section_titre"><span>Réalisations</span></p>
+
+          {projectNodes && (
+            <ProjectPreviewCarousel
+              nodes={projectNodes}
+            />
+          )}
+        </Container>
+      </div>
+
+      <div id="artiste" className="section section_artiste">
+        <Container>
+          <p className="section_titre"><span>L'artiste</span></p>
+
+          <div className="artiste_row1">
+            <div className="artiste_row1_left">
+              <Img fluid={data.illustration_artiste.childImageSharp.fluid} fadeIn alt="Illustration artiste" />
+            </div>
+            <div className="artiste_row1_right">
+              <p>
+                Rose-Line était une femme, mais aussi une mère de famille, une sœur et une grand mère aimante, souriante et généreuse, toujours là pour les autres mais également un véritable rayon de soleil pour son entourage : où qu’elle aille la bonne humeur était au rendez-vous.
+              </p>
+              <p>
+                Un rayon de soleil qu’elle aimait retranscrire dans ses peintures de paysages de Provence.<br />
+                Elle s’est découvert ce talent pour la peinture au moment de sa retraite et cela est devenu pour elle une véritable passion.<br />
+                Pouvoir peindre les paysages qui l’ont émerveillé tout au long de sa vie lui procurait beaucoup de plaisir et rythmait son quotidien.
+              </p>
+            </div>
+          </div>
+          <div className="artiste_row2">
+            <div className="artiste_row2_left">
+              <p>
+                Elle se faisait une joie d’exposer ses réalisations, ce qui lui permettait de faire des rencontres, mais également de partager son expérience. Elle a pu faire quelques petites expositions à Gourdon, Antibes, dans le Vaucluse, etc...
+              </p>
+              <p>
+                Cette année cela fera 10 ans que le ciel l’a emporté, mais elle nous a laissé en souvenir ses précieuses peintures.
+              </p>
+            </div>
+            <div className="artiste_row2_right">
+              <div className="galerie">
+                <Img fluid={data.galerie1.childImageSharp.fluid} fadeIn alt="Galerie 1" />
+                <Img fluid={data.galerie2.childImageSharp.fluid} fadeIn alt="Galerie 2" />
+                <Img fluid={data.galerie3.childImageSharp.fluid} fadeIn alt="Galerie 3" />
+                <Img fluid={data.galerie4.childImageSharp.fluid} fadeIn alt="Galerie 4" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <div id="contact" className="section section_contact">
+        <Container>
+          <p className="section_titre"><span>Contact</span></p>
+
+          <p className="text-center">
+            Vous êtes intéressé ? Vous souhaitez plus d’informations ? Nous vous recontacterons.
+          </p>
+          <br />
+
+          <form className="form_common" name="contact" data-netlify="true" data-netlify-recaptcha="true">
+            <div className="form_row">
+              <div className="form_group form_group_vertical">
+                <label htmlFor="nom">Nom</label>
+                <input type="text" name="nom" id="nom" required />
+              </div>
+            </div>
+            <div className="form_row">
+              <div className="form_group form_group_vertical">
+                <label htmlFor="prenom">Prénom</label>
+                <input type="text" name="prenom" id="prenom" required />
+              </div>
+            </div>
+            <div className="form_row">
+              <div className="form_group form_group_vertical">
+                <label htmlFor="email">E-mail</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+            </div>
+            <div className="form_row">
+              <div className="form_group form_group_vertical">
+                <label htmlFor="telephone">Téléphone</label>
+                <input type="text" name="telephone" id="telephone" required />
+              </div>
+            </div>
+            <div className="form_row">
+              <div className="form_group form_group_vertical">
+                <label htmlFor="message">Message</label>
+                <textarea name="message" id="message"></textarea>
+              </div>
+            </div>
+            <div className="form_row">
+              <div className="form_group">
+                <button type="submit">Envoyer</button>
+              </div>
+            </div>
+          </form>
+        </Container>
+      </div>
     </Layout>
   )
 }

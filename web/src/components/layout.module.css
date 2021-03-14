@@ -2,10 +2,16 @@
 @import '../styles/custom-properties.css';
 
 .content {
+  padding-top: 70px;
   background: var(--color-white);
   min-height: calc(100% - 73px - 120px);
 
-  @media (--media-min-small) {
+  @media (--media-min-medium) {
+    padding-top: 86px;
+  }
+
+  @media (--media-min-medium) {
+    padding-top: 124px;
     min-height: calc(100% - 88px - 150px);
   }
 }
@@ -26,7 +32,6 @@
 }
 
 .footerWrapper {
-  box-sizing: border-box;
   max-width: 960px;
   padding: 4.5em 1.5em 1.5em;
   margin: 0 auto;

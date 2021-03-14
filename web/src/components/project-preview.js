@@ -1,5 +1,6 @@
-import {Link} from 'gatsby'
 import React from 'react'
+import {Link} from 'gatsby'
+import Img from 'gatsby-image'
 import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockText from './block-text'
@@ -9,25 +10,25 @@ import {responsiveTitle3} from './typography.module.css'
 
 function ProjectPreview (props) {
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
+    /*<Link className={styles.root} to={`/project/${props.slug.current}`}>*/
+    <div className={styles.root}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
-          <img
+          /*<img
             src={imageUrlFor(buildImageObj(props.mainImage))
               .width(600)
               .height(Math.floor((9 / 16) * 600))
               .url()}
             alt={props.mainImage.alt}
-          />
+          />*/
+          <Img fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
         )}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
-      {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-      )}
-    </Link>
+      <p className={styles.dimensions}>{props.dimensions} cm</p>
+      <p className={styles.price}>{props.price} &euro;</p>
+    </div>
+    /*</Link>*/
   )
 }
 

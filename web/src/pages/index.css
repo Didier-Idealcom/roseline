@@ -1,0 +1,169 @@
+@import '../styles/custom-media.css';
+@import '../styles/custom-properties.css';
+@import '../styles/forms.css';
+
+.section_titre {
+  position: relative;
+  margin-bottom: 1em;
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-style: italic;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (--media-max-small) {
+    font-size: 1.5rem;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: block;
+    border-top: 3px solid #000;
+  }
+
+  & span {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    padding: 0 100px;
+    background: #fff;
+
+    @media (--media-max-small) {
+      padding: 0 20px;
+    }
+  }
+}
+
+.section_intro {
+  font-size: 1.5rem;
+  font-style: italic;
+
+  @media (--media-max-small) {
+    font-size: 1.0rem;
+  }
+}
+
+.section_realisations {
+  & .section_titre {
+    color: #8cb4ba;
+
+    &:after {
+      border-top-color: #8cb4ba;
+    }
+  }
+}
+
+.section_artiste {
+  font-size: 1.5rem;
+  text-align: justify;
+
+  @media (--media-max-small) {
+    font-size: 1.0rem;
+  }
+
+  & .section_titre {
+    color: #a9bb64;
+
+    &:after {
+      border-top-color: #a9bb64;
+    }
+  }
+
+  & p {margin-bottom: 1em;}
+
+  & .artiste_row1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @media (--media-max-large) {
+      flex-direction: column;
+    }
+
+    & .artiste_row1_left {
+      width: 35%;
+
+      @media (--media-max-large) {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    & .artiste_row1_right {
+      width: 65%;
+      padding-left: 50px;
+
+      @media (--media-max-large) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+  & .artiste_row2 {
+    display: flex;
+    align-items: center;
+
+    @media (--media-max-large) {
+      flex-direction: column;
+    }
+
+    & .artiste_row2_left {
+      width: 35%;
+
+      @media (--media-max-large) {
+        width: 100%;
+      }
+    }
+    & .artiste_row2_right {
+      width: 65%;
+      padding-left: 50px;
+      text-align: center;
+
+      @media (--media-max-large) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+  & .galerie {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    width: 80%;
+
+    @media (--media-max-large) {
+      width: 100%;
+    }
+
+    & p {margin-bottom: 0;}
+  }
+}
+
+.section_contact {
+  font-size: 1.5rem;
+
+  @media (--media-max-small) {
+    font-size: 1.0rem;
+  }
+
+  & .section_titre {
+    color: #a19dd4;
+
+    &:after {
+      border-top-color: #a19dd4;
+    }
+  }
+
+  & input, & select, & textarea {border-color: #a19dd4;}
+
+  & [type="submit"] {
+    background: #a19dd4;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}

@@ -12,6 +12,8 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -19,6 +21,22 @@ module.exports = {
         token,
         watchMode: !isProd,
         overlayDrafts: !isProd && token
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets/`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Poppins\:300i,400,400i,600,600i`
+        ],
+        display: 'swap'
       }
     }
   ]

@@ -27,6 +27,16 @@ export default {
       type: 'datetime'
     },
     {
+      name: 'dimensions',
+      title: 'Dimensions',
+      type: 'string'
+    },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'number'
+    },
+    /*{
       name: 'excerpt',
       title: 'Excerpt',
       type: 'simplePortableText'
@@ -46,7 +56,7 @@ export default {
       name: 'endedAt',
       title: 'Ended at',
       type: 'datetime'
-    },
+    },*/
     {
       name: 'mainImage',
       title: 'Main image',
@@ -57,7 +67,7 @@ export default {
       title: 'Categories',
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}]
-    },
+    }/*,
     {
       name: 'body',
       title: 'Body',
@@ -68,7 +78,7 @@ export default {
       title: 'Related projects',
       type: 'array',
       of: [{type: 'reference', to: {type: 'sampleProject'}}]
-    }
+    }*/
   ],
   preview: {
     select: {

@@ -1,0 +1,25 @@
+.carousel.carousel-slider {
+  overflow: visible;
+}
+
+.carousel .control-dots {
+  top: 100%;
+  bottom: auto;
+}
+
+.carousel .control-dots .dot {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  &:hover, &.selected {
+    background: #8cb4ba;
+    box-shadow: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.carousel .slide {
+  background: none;
+}

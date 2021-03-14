@@ -123,7 +123,7 @@
 }
 
 .responsiveTitle3 {
-  font-weight: 900;
+  font-weight: 600;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1rem 0 0.5rem;

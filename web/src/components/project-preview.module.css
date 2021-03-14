@@ -1,6 +1,7 @@
 .root {
   display: block;
   color: inherit;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -10,7 +11,7 @@
 
 .leadMediaThumb {
   position: relative;
-  padding-bottom: 66.666%;
+  /*padding-bottom: 66.666%;*/
   background: #eee;
 
   @nest & img {
@@ -24,11 +25,7 @@
 }
 
 .title {
-  @media (hover: hover) {
-    @nest .root:hover & {
-      text-decoration: underline;
-    }
-  }
+
 }
 
 .excerpt {
@@ -39,4 +36,13 @@
   @nest & strong {
     font-weight: 600;
   }
+}
+
+.dimensions {
+
+}
+
+.price {
+  font-weight: 300;
+  font-style: italic;
 }
