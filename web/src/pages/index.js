@@ -207,8 +207,7 @@ const IndexPage = props => {
           </p>
           <br />
 
-          <form className="form_common" name="contact" action="/" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
-            <input type="hidden" name="bot-field" />
+          <form className="form_common" name="contact" action="/" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="contact" />
 
             <div className="form_row">
@@ -239,11 +238,6 @@ const IndexPage = props => {
               <div className="form_group form_group_vertical">
                 <label htmlFor="message">Message</label>
                 <textarea name="message" id="message"></textarea>
-              </div>
-            </div>
-            <div className="form_row">
-              <div className="form_group">
-                <div data-netlify-recaptcha="true"></div>
               </div>
             </div>
             <div className="form_row">
