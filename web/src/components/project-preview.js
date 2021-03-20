@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockText from './block-text'
 
-import styles from './project-preview.module.css'
+import * as styles from './project-preview.module.css'
 import {responsiveTitle3} from './typography.module.css'
 
 function ProjectPreview (props) {
@@ -21,7 +21,7 @@ function ProjectPreview (props) {
               .url()}
             alt={props.mainImage.alt}
           />*/
-          <Img fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
+          <GatsbyImage image={props.mainImage.asset.gatsbyImageData} fadeIn alt={props.mainImage.alt} />
         )}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -17,44 +17,32 @@ export const query = graphql`
   query IndexPageQuery {
     bandeau: file(relativePath: { eq: "bandeau_signature.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP, AVIF])
       }
     }
     illustration_artiste: file(relativePath: { eq: "illustration_artiste.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 600) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 600, formats: [AUTO, WEBP, AVIF])
       }
     }
     galerie1: file(relativePath: { eq: "galerie1.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 400, formats: [AUTO, WEBP, AVIF])
       }
     }
     galerie2: file(relativePath: { eq: "galerie2.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 400, formats: [AUTO, WEBP, AVIF])
       }
     }
     galerie3: file(relativePath: { eq: "galerie3.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 400, formats: [AUTO, WEBP, AVIF])
       }
     }
     galerie4: file(relativePath: { eq: "galerie4.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 400, formats: [AUTO, WEBP, AVIF])
       }
     }
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -89,9 +77,7 @@ export const query = graphql`
             }
             asset {
               _id
-              fluid(maxWidth: 600, maxHeight: 480) {
-                ...GatsbySanityImageFluid
-              }
+              gatsbyImageData(width: 600, height: 480, formats: [WEBP, AVIF])
             }
             alt
           }
@@ -136,7 +122,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
 
       <div id="bandeau" className="bandeau">
-        <Img fluid={data.bandeau.childImageSharp.fluid} fadeIn alt="Bandeau Rose-Line" />
+        <GatsbyImage image={data.bandeau.childImageSharp.gatsbyImageData} fadeIn alt="Bandeau Rose-Line" />
       </div>
 
       <div className="section section_intro">
@@ -164,7 +150,7 @@ const IndexPage = props => {
 
           <div className="artiste_row1">
             <div className="artiste_row1_left">
-              <Img fluid={data.illustration_artiste.childImageSharp.fluid} fadeIn alt="Illustration artiste" />
+              <GatsbyImage image={data.illustration_artiste.childImageSharp.gatsbyImageData} fadeIn alt="Illustration artiste" />
             </div>
             <div className="artiste_row1_right">
               <p>
@@ -188,10 +174,10 @@ const IndexPage = props => {
             </div>
             <div className="artiste_row2_right">
               <div className="galerie">
-                <Img fluid={data.galerie1.childImageSharp.fluid} fadeIn alt="Galerie 1" />
-                <Img fluid={data.galerie2.childImageSharp.fluid} fadeIn alt="Galerie 2" />
-                <Img fluid={data.galerie3.childImageSharp.fluid} fadeIn alt="Galerie 3" />
-                <Img fluid={data.galerie4.childImageSharp.fluid} fadeIn alt="Galerie 4" />
+                <GatsbyImage image={data.galerie1.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 1" />
+                <GatsbyImage image={data.galerie2.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 2" />
+                <GatsbyImage image={data.galerie3.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 3" />
+                <GatsbyImage image={data.galerie4.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 4" />
               </div>
             </div>
           </div>

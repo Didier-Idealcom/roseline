@@ -3,7 +3,7 @@ import React from 'react'
 import ProjectPreview from './project-preview'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import styles from './project-preview-carousel.module.css'
+import * as styles from './project-preview-carousel.module.css'
 import './custom-carousel.css'
 
 function ProjectPreviewCarousel (props) {
