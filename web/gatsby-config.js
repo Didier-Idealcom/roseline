@@ -31,12 +31,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        fonts: [
-          `Poppins\:300i,400,400i,600,600i`
-        ],
-        display: 'swap'
+        google: {
+          families: [`Poppins:300i,400,400i,600,600i&display=swap`]
+        }
       }
     }
   ]
