@@ -21,7 +21,7 @@ function ProjectPreview (props) {
               .url()}
             alt={props.mainImage.alt}
           />*/
-          <GatsbyImage image={props.mainImage.asset.gatsbyImageData} fadeIn alt={props.mainImage.alt} />
+          <GatsbyImage image={props.mainImage.asset.gatsbyImageData} alt={props.mainImage.alt} />
         )}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>

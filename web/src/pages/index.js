@@ -17,7 +17,7 @@ export const query = graphql`
   query IndexPageQuery {
     bandeau: file(relativePath: { eq: "bandeau_signature.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData(width: 1920, formats: [AUTO, WEBP, AVIF])
       }
     }
     illustration_artiste: file(relativePath: { eq: "illustration_artiste.jpg" }) {
@@ -77,7 +77,7 @@ export const query = graphql`
             }
             asset {
               _id
-              gatsbyImageData(width: 600, height: 480, formats: [WEBP, AVIF])
+              gatsbyImageData(width: 600, height: 480, placeholder: BLURRED, formats: [WEBP, AVIF])
             }
             alt
           }
@@ -122,7 +122,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
 
       <div id="bandeau" className="bandeau">
-        <GatsbyImage image={data.bandeau.childImageSharp.gatsbyImageData} fadeIn alt="Bandeau Rose-Line" />
+        <GatsbyImage image={data.bandeau.childImageSharp.gatsbyImageData} alt="Bandeau Rose-Line" />
       </div>
 
       <div className="section section_intro">
