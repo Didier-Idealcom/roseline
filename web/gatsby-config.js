@@ -31,11 +31,24 @@ module.exports = {
         path: `${__dirname}/src/assets/`
       }
     },
-    {
+    /*{
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
           families: [`Poppins:300i,400,400i,600,600i&display=swap`]
+        }
+      }
+    }*/
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: `Poppins`,
+              variants: [`300i`,`400`,`400i`,`600`,`600i`]
+            }
+          ]
         }
       }
     }

@@ -77,7 +77,7 @@ export const query = graphql`
             }
             asset {
               _id
-              gatsbyImageData(width: 600, height: 480, placeholder: BLURRED, formats: [WEBP, AVIF])
+              gatsbyImageData(width: 600, height: 480, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
             alt
           }
@@ -150,7 +150,7 @@ const IndexPage = props => {
 
           <div className="artiste_row1">
             <div className="artiste_row1_left">
-              <GatsbyImage image={data.illustration_artiste.childImageSharp.gatsbyImageData} fadeIn alt="Illustration artiste" />
+              <GatsbyImage image={data.illustration_artiste.childImageSharp.gatsbyImageData} alt="Illustration artiste" />
             </div>
             <div className="artiste_row1_right">
               <p>
@@ -174,10 +174,10 @@ const IndexPage = props => {
             </div>
             <div className="artiste_row2_right">
               <div className="galerie">
-                <GatsbyImage image={data.galerie1.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 1" />
-                <GatsbyImage image={data.galerie2.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 2" />
-                <GatsbyImage image={data.galerie3.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 3" />
-                <GatsbyImage image={data.galerie4.childImageSharp.gatsbyImageData} fadeIn alt="Galerie 4" />
+                <GatsbyImage image={data.galerie1.childImageSharp.gatsbyImageData} alt="Galerie 1" />
+                <GatsbyImage image={data.galerie2.childImageSharp.gatsbyImageData} alt="Galerie 2" />
+                <GatsbyImage image={data.galerie3.childImageSharp.gatsbyImageData} alt="Galerie 3" />
+                <GatsbyImage image={data.galerie4.childImageSharp.gatsbyImageData} alt="Galerie 4" />
               </div>
             </div>
           </div>
