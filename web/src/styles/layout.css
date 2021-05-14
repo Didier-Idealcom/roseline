@@ -25,6 +25,7 @@ a:focus,
 a:active   {outline: none;}
 svg        {display: block;}
 
+.hidden    {display: none !important;}
 .clear     {clear: both;}
 .fleft     {float: left;}
 .fright    {float: right;}

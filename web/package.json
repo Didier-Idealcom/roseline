@@ -29,7 +29,8 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-responsive-carousel": "^3.2.15"
+    "react-responsive-carousel": "^3.2.15",
+    "simple-react-lightbox": "^3.6.6"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",

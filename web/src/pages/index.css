@@ -39,7 +39,7 @@
 }
 
 .section_intro {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
 
   @media (--media-max-small) {
@@ -58,7 +58,7 @@
 }
 
 .section_artiste {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: justify;
 
   @media (--media-max-small) {
@@ -73,6 +73,8 @@
     }
   }
 
+  & .sous_titre {font-size: 1.5rem; font-weight: bold;}
+
   & p {margin-bottom: 1em;}
 
   & .artiste_row1 {
@@ -85,16 +87,19 @@
     }
 
     & .artiste_row1_left {
-      width: 35%;
+      width: 45%;
+      padding: 0 5%;
 
       @media (--media-max-large) {
         width: 100%;
+        padding: 0;
         margin-bottom: 20px;
       }
     }
+
     & .artiste_row1_right {
-      width: 65%;
-      padding-left: 50px;
+      width: 55%;
+      padding: 0 5%;
 
       @media (--media-max-large) {
         width: 100%;
@@ -102,6 +107,7 @@
       }
     }
   }
+
   & .artiste_row2 {
     display: flex;
     align-items: center;
@@ -111,15 +117,18 @@
     }
 
     & .artiste_row2_left {
-      width: 35%;
+      width: 45%;
+      padding: 0 5%;
 
       @media (--media-max-large) {
         width: 100%;
+        padding: 0;
       }
     }
+
     & .artiste_row2_right {
-      width: 65%;
-      padding-left: 50px;
+      width: 55%;
+      padding: 0 5%;
       text-align: center;
 
       @media (--media-max-large) {
@@ -128,11 +137,11 @@
       }
     }
   }
+
   & .galerie {
     display: inline-grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
-    width: 80%;
 
     @media (--media-max-large) {
       width: 100%;
@@ -143,7 +152,7 @@
 }
 
 .section_contact {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 
   @media (--media-max-small) {
     font-size: 1.0rem;

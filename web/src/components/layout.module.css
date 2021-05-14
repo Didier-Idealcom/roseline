@@ -2,17 +2,21 @@
 @import '../styles/custom-properties.css';
 
 .content {
-  padding-top: 70px;
   background: var(--color-white);
-  min-height: calc(100% - 73px - 120px);
 
   @media (--media-min-medium) {
-    padding-top: 86px;
+    padding-top: 100px;
+    min-height: calc(100% - 100px);
   }
 
-  @media (--media-min-medium) {
-    padding-top: 124px;
-    min-height: calc(100% - 88px - 150px);
+  @media (--media-max-medium) {
+    padding-top: 72px;
+    min-height: calc(100% - 72px);
+  }
+
+  @media (--media-max-small) {
+    padding-top: 70px;
+    min-height: calc(100% - 70px);
   }
 }
 

@@ -27,6 +27,11 @@ export default {
       type: 'datetime'
     },
     {
+      name: 'numero',
+      title: 'Numéro',
+      type: 'number'
+    },
+    {
       name: 'dimensions',
       title: 'Dimensions',
       type: 'string'

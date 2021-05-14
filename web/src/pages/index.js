@@ -51,8 +51,7 @@ export const query = graphql`
       keywords
     }
     projects: allSanitySampleProject(
-      limit: 6
-      sort: {fields: [publishedAt], order: DESC}
+      sort: {fields: [numero], order: ASC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
       edges {
@@ -77,7 +76,7 @@ export const query = graphql`
             }
             asset {
               _id
-              gatsbyImageData(width: 600, height: 480, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(width: 1200, height: 960, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
             alt
           }
@@ -85,6 +84,7 @@ export const query = graphql`
           slug {
             current
           }
+          numero
           dimensions
           price
         }
@@ -150,27 +150,23 @@ const IndexPage = props => {
 
           <div className="artiste_row1">
             <div className="artiste_row1_left">
-              <GatsbyImage image={data.illustration_artiste.childImageSharp.gatsbyImageData} alt="Illustration artiste" />
+              <div className="illustration">
+                <GatsbyImage image={data.illustration_artiste.childImageSharp.gatsbyImageData} alt="Illustration artiste" />
+              </div>
             </div>
             <div className="artiste_row1_right">
-              <p>
-                Rose-Line était une femme, mais aussi une mère de famille, une sœur et une grand mère aimante, souriante et généreuse, toujours là pour les autres mais également un véritable rayon de soleil pour son entourage : où qu’elle aille la bonne humeur était au rendez-vous.
-              </p>
-              <p>
-                Un rayon de soleil qu’elle aimait retranscrire dans ses peintures de paysages de Provence.<br />
-                Elle s’est découvert ce talent pour la peinture au moment de sa retraite et cela est devenu pour elle une véritable passion.<br />
-                Pouvoir peindre les paysages qui l’ont émerveillé tout au long de sa vie lui procurait beaucoup de plaisir et rythmait son quotidien.
-              </p>
+              <p className="sous_titre">Rose-Line</p>
+              <p>C'était une femme, mais aussi une mère de famille, une sœur et une grand mère aimante, souriante et généreuse, toujours là pour les autres mais également un véritable rayon de soleil pour son entourage : où qu’elle aille la bonne humeur était au rendez-vous.</p>
+              <p>Un rayon de soleil qu’elle aimait retranscrire dans ses peintures de paysages de Provence.</p>
+              <p>Elle s’est découvert ce talent pour la peinture au moment de sa retraite et cela est devenu pour elle une véritable passion.</p>
+              <p>Pouvoir peindre les paysages qui l’ont émerveillé tout au long de sa vie lui procurait beaucoup de plaisir et rythmait son quotidien.</p>
             </div>
           </div>
           <div className="artiste_row2">
             <div className="artiste_row2_left">
-              <p>
-                Elle se faisait une joie d’exposer ses réalisations, ce qui lui permettait de faire des rencontres, mais également de partager son expérience. Elle a pu faire quelques petites expositions à Gourdon, Antibes, dans le Vaucluse, etc...
-              </p>
-              <p>
-                Cette année cela fera 10 ans que le ciel l’a emporté, mais elle nous a laissé en souvenir ses précieuses peintures.
-              </p>
+              <p>Elle se faisait une joie d’exposer ses réalisations, ce qui lui permettait de faire des rencontres, mais également de partager son expérience.</p>
+              <p>Elle a pu faire quelques petites expositions à Gourdon, Antibes, dans le Vaucluse, etc...</p>
+              <p>Cette année cela fera 10 ans que le ciel l’a emporté, mais elle nous a laissé en souvenir ses précieuses peintures.</p>
             </div>
             <div className="artiste_row2_right">
               <div className="galerie">
@@ -188,9 +184,7 @@ const IndexPage = props => {
         <Container>
           <p className="section_titre"><span>Contact</span></p>
 
-          <p className="text-center">
-            Vous êtes intéressé ? Vous souhaitez plus d’informations ? Nous vous recontacterons.
-          </p>
+          <p className="text-center">Vous êtes intéressé ? Vous souhaitez plus d’informations ? Nous vous recontacterons.</p>
           <br />
 
           <form className="form_common" name="contact" action="/" method="POST" data-netlify="true">
