@@ -27,12 +27,13 @@ function ProjectPreviewCarousel (props) {
     dynamicHeight: false,
     swipeable: true,
     emulateTouch: true,
-    stopOnHover: true
+    stopOnHover: true,
+    swipeScrollTolerance: 80
   }
 
   const lightboxOptions = {
-    thumbnails: {
-      showThumbnails: false
+    buttons: {
+      showDownloadButton: false
     }
   }
 
