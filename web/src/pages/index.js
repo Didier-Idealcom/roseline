@@ -87,6 +87,7 @@ export const query = graphql`
           numero
           dimensions
           price
+          sale
         }
       }
     }

@@ -24,7 +24,7 @@ function ProjectPreview (props) {
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.numero} - {props.title}</h3>
       <p className={styles.dimensions}>{props.dimensions}</p>
-      <p className={styles.price}>{props.price} &euro;</p>
+      <p><span className={props.sale ? styles.priceSale : styles.price}>{props.price} &euro;</span> <span className={styles.sale}>{props.sale ? 'Vendu' : ''}</span></p>
     </div>
     /*</Link>*/
   )

@@ -10,7 +10,7 @@ import RoleList from './role-list'
 import * as styles from './project.module.css'
 
 function Project (props) {
-  const {_rawBody, title, numero, dimensions, price, categories, mainImage, members, publishedAt, relatedProjects} = props
+  const {_rawBody, title, numero, dimensions, price, sale, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (

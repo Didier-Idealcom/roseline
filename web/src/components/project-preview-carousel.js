@@ -28,6 +28,7 @@ function ProjectPreviewCarousel (props) {
     swipeable: true,
     emulateTouch: true,
     stopOnHover: true,
+    interval: 20000000,
     swipeScrollTolerance: 80
   }
 

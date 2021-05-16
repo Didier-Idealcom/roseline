@@ -7,7 +7,7 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titre',
       type: 'string'
     },
     {
@@ -22,7 +22,7 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Date de publication',
       description: 'You can use this field to schedule projects where you show them',
       type: 'datetime'
     },
@@ -40,6 +40,11 @@ export default {
       name: 'price',
       title: 'Price',
       type: 'number'
+    },
+    {
+      name: 'sale',
+      title: 'Vendu',
+      type: 'boolean'
     },
     /*{
       name: 'excerpt',
